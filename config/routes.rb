@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  authenticated :users do
+  authenticated :user do
     root 'welcome#index'
   end
   
-  unauthenticated :users do
+  unauthenticated :user do
     devise_scope :user do
       root 'welcome#unregistered', as: :unregistered_root
     end
