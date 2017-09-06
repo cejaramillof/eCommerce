@@ -1,0 +1,43 @@
+/* Colores */
+$colors : ( 
+  green: #16a085, 
+  grey: #5A6576, 
+  other-grey: #E7ECEE, 
+  blue: #058CC5, 
+  red: #d2527f, 
+  light-blue: #3498DB, 
+  white: white
+); 
+@each $color_name,$color in $colors{ 
+  .#{$color-name}{ 
+    background-color: $color; 
+  } 
+  .#{$color-name}-text{ 
+    color: $color; 
+  } 
+}
+
+/* Paddings */
+.big-padding {
+  padding: 2em;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+/* Alineamiento */
+.no-float {
+  float: none !important;
+}
+
+.inline-block {
+  float:none !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Tamaños */
+.ultra-big {
+  font-size: 7em;
+}
