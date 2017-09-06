@@ -27,8 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #HAML para crear un mejor HTML
 gem 'haml-rails'
-#Gema de bootstrap
+#Gema de Bootstrap
 gem'bootstrap-sass'
+#Tema Material Design for Bootstrap
+gem 'bootstrap-material-design'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
