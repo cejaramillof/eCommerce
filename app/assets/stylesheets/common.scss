@@ -28,6 +28,11 @@ $colors : (
   padding: 2em;
 }
 
+/* Margins */
+.top-space {
+  margin-top: 1em;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -43,7 +48,27 @@ $colors : (
   vertical-align: middle;
 }
 
+.absolute {
+  position: absolute;
+}
+
 /* Tamaños */
+.small {
+  font-size: 12px;
+}
+
+.medium {
+  font-size: 1.5em;
+}
+
+.big {
+  font-size: 3em;
+}
+
+.bigger {
+  font-size: 4em;
+}
+
 .ultra-big {
   font-size: 7em;
 }

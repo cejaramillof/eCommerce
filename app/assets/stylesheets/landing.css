@@ -11,10 +11,11 @@
  * file per style scope.
  *
  *= require common
+ *= require lan
  *= require bootstrap-material-design
  *= require_self
  */
 
 body {
-  background-color: red;
+  background-color: white;
 }

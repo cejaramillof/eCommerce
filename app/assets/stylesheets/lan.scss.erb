@@ -1,0 +1,28 @@
+@font-face {
+  font-family:"Kostic";
+  src: url(<%= asset_path("Kostic-Regular.ttf") %>) format('truetype');
+}
+
+@font-face {
+  font-family:"Kostic";
+  src: url(<%= asset_path("Kostic-Bold.ttf") %>) format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family:"Kostic";
+  src: url(<%= asset_path("Kostic-Thin.ttf") %>) format('truetype');
+  font-weight: lighter;
+}
+
+.kostic {
+  font-family: Kostic;
+}
+
+.circle {
+  border-radius: 50%;
+  display: inline-block;
+  padding-top: 10px;
+  height: 70px;
+  width: 80px;
+}
