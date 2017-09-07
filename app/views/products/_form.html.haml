@@ -1,4 +1,5 @@
 = form_for @product,builder: BootstrapFormBuilder do |f|
+  = f.errors
   = f.text_field :name
   = f.text_field :pricing
   = f.text_area :description
