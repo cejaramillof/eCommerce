@@ -1,8 +1,13 @@
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_attachment, only: [:destroy]
+  before_action :set_attachment, only: [:destroy,:show]
   before_action :set_product, only: [:destroy]
-  before_action :authenticate_owner!
+  before_action :authenticate_owner!, except: [:show]
+  
+  def show
+    send_file @attachment.archivo.path  
+  end
+  
   def new
   end  
   
