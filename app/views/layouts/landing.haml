@@ -8,6 +8,5 @@
   %body
     %div{style:" #{"display:none;" if alert.nil? && notice.nil?} "}
       %p.notice= notice
-      %p.alert= alert
-    hola mundo      
+      %p.alert= alert     
     = yield
