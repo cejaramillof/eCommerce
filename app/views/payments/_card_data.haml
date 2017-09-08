@@ -4,8 +4,7 @@
       .modal-header
         %button.close.close-modal X
         %h3.green-text.modal-title Paga con tu tarjeta
-      =form_tag "/payments/cards", method: :post,class:"top-space" do
-      
+      =form_tag "/payments/cards", method: :post,class:"top-space" do      
         .modal-body
           .form-group
             =email_field_tag :email,nil,class:"form-control floating-label", placeholder: "Correo electrónico", required: "required"

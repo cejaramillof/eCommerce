@@ -3,7 +3,7 @@
 #  end
 #end
 class Stores::Paypal
-  #include PayPal::SDK::REST
+  include PayPal::SDK::REST
   #attr_reader :payment    ->   paypal.payment
   #attr_writer :payment    ->   paypal.payment = "Hola "
   attr_accessor :payment #tiene los dos anteriores (accessor vs variable de clase)
