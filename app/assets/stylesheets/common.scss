@@ -4,6 +4,11 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+/* Texto */
+.bold {
+  font-weight: bold;
+}
+
 /* Colores */
 $colors : ( 
   green: #16a085, 
@@ -12,7 +17,8 @@ $colors : (
   blue: #058CC5, 
   red: #d2527f, 
   light-blue: #3498DB, 
-  white: white
+  white: white,
+  teal: #009688
 ); 
 @each $color_name,$color in $colors{ 
   .#{$color-name}{ 
@@ -37,6 +43,11 @@ $colors : (
 }
 
 /* Margins */
+
+.no-margin {
+  margin: 0;
+}
+
 .top-space {
   margin-top: 1em;
 }
@@ -50,10 +61,15 @@ $colors : (
   float: none !important;
 }
 
+.in-top {
+  vertical-align: top !important;
+}
+
 .inline-block {
   float:none !important;
   display: inline-block;
   vertical-align: middle;
+  margin-right: -4px;
 }
 
 .absolute {
@@ -63,6 +79,10 @@ $colors : (
 /* Tamaños */
 .small {
   font-size: 12px;
+}
+
+.normal {
+  font-size: 1.2em;
 }
 
 .medium {

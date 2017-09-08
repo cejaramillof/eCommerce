@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :attachments, only: [:create,:destroy,:new,:show]
+  resources :products
   devise_for :users
   
   post "/emails/create", as: :create_email

@@ -31,6 +31,10 @@ gem 'haml-rails'
 gem'bootstrap-sass'
 #Tema Material Design for Bootstrap
 gem 'bootstrap-material-design'
+#Paperclip para subir imagenes
+gem 'paperclip'
+#PayPal SDK
+gem 'paypal-sdk-rest'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -44,6 +48,9 @@ gem 'bootstrap-material-design'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  #Anotación de los modelos
+  gem 'annotate'
   
   #Pruebas
   gem 'shoulda-matchers'
