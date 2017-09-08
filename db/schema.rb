@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908054959) do
+ActiveRecord::Schema.define(version: 20170908161727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,15 @@ ActiveRecord::Schema.define(version: 20170908054959) do
     t.string   "email"
     t.string   "ip"
     t.string   "status"
-    t.decimal  "fee",        precision: 7, scale: 3
+    t.decimal  "fee",              precision: 6, scale: 2
     t.string   "paypal_id"
-    t.decimal  "total",      precision: 9, scale: 3
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "total",            precision: 8, scale: 2
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "shopping_cart_id"
   end
+
+  add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

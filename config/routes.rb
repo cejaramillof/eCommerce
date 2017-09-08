@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   get "/carrito", to: "shopping_carts#show"
   get "/add/:product_id", as: :add_to_cart,to: "in_shopping_carts#create"
-  
+  get "/checkout",to: "payments#checkout"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
