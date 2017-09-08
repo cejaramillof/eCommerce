@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   
   resources :attachments, only: [:create,:destroy,:new,:show]
   resources :products
-  resources :in_shoping_carts, only: [:create,:destroy]
+  resources :in_shopping_carts, only: [:create,:destroy]
   devise_for :users
   
   post "/emails/create", as: :create_email
   
   get "/carrito", to: "shopping_carts#show"
+  get "/add/:product_id", as: :add_to_cart,to: "in_shopping_carts#create"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
