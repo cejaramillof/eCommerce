@@ -17,7 +17,8 @@ class PaymentsController < ApplicationController
   end
   
   def create
-    paypal_helper = Stores::Paypal.new(shopping_cart: @shopping_cart,
+    paypal_helper = Stores::Paypal.new(@shopping_cart.total,
+                                      @shopping_cart.items,
                                       return_url: checkout_url,
                                       cancel_url: carrito_url)
     if paypal_helper.process_payment.create
