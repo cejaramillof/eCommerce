@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.12.2)
+      concurrent-ruby (~> 1.0)
     actionmailer (4.2.9)
       actionpack (= 4.2.9)
       actionview (= 4.2.9)
@@ -231,6 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   annotate
   bootstrap-material-design
   bootstrap-sass

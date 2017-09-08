@@ -35,6 +35,8 @@ gem 'bootstrap-material-design'
 gem 'paperclip'
 #PayPal SDK
 gem 'paypal-sdk-rest'
+#AASM para crear maquinas de estado
+gem 'aasm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
