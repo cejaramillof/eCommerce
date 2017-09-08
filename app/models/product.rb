@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  name                :string
-#  pricing             :decimal(11, 3)
+#  pricing             :integer
 #  description         :text
 #  user_id             :integer
 #  avatar_file_name    :string
