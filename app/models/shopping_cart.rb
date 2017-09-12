@@ -23,9 +23,16 @@ class ShoppingCart < ActiveRecord::Base
     
     event :pay do
       after do
+        self.generate_links()
         #Mandar los archivos
       end
       transitions from: [:created], to: :payed
+    end
+  end
+  
+  def generate_links
+    self.products.each do |product|
+      Link.create(expiration_date: DateTime.now + 7.days, product: product)
     end
   end
   
