@@ -20,5 +20,6 @@ FactoryGirl.define do
     downloads 1
     downloads_limit 1
     custom_id nil
+    email "carlos@test.com"
   end
 end
