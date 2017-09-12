@@ -10,7 +10,9 @@
 #  custom_id       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  email           :string
 #
+
 require 'digest/md5'
 class Link < ActiveRecord::Base
   before_create :set_defaults

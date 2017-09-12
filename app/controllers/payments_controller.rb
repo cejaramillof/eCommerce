@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
       redirect_to "/carrito"
     else
       Stores::Paypal.checkout(params[:PayerID],params[:paymentId]) do
+        @my_payment.update(email: Stores::Paypal.get_email(params[:paymentId]))
         @my_payment.pay!
         redirect_to ok_path,notice:"Se procesó el pago con PayPal."  
         return

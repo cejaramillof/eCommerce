@@ -13,6 +13,8 @@ class ShoppingCart < ActiveRecord::Base
   include AASM
   has_many :products, through: :in_shopping_carts
   has_many :in_shopping_carts
+  has_many :my_payments
+  
   #status = 0, status = 1
   #enum status: {payed: 1, default: 0}
   
@@ -30,9 +32,17 @@ class ShoppingCart < ActiveRecord::Base
     end
   end
   
+  def payment
+    begin
+      my_payments.payed.first
+    rescue Exception => e
+      return nil
+    end
+  end
+  
   def generate_links
     self.products.each do |product|
-      Link.create(expiration_date: DateTime.now + 7.days, product: product)
+      Link.create(expiration_date: DateTime.now + 7.days, product: product, email: payment.email)
     end
   end
   
