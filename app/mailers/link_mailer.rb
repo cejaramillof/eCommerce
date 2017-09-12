@@ -1,5 +1,5 @@
 class LinkMailer < ActionMailer::Base
-  default from: "Downloads@test.com"
+  default from: "andresecommercetest@gmail.com"
   
   def download_link(link)  
     @link = link
