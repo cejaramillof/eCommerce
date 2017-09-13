@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912204133) do
+ActiveRecord::Schema.define(version: 20170913152146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20170912204133) do
 
   add_index "in_shopping_carts", ["product_id"], name: "index_in_shopping_carts_on_product_id", using: :btree
   add_index "in_shopping_carts", ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id", using: :btree
+
+  create_table "link_attachments", force: :cascade do |t|
+    t.integer  "link_id"
+    t.datetime "expiration_date"
+    t.integer  "attachment_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "link_attachments", ["attachment_id"], name: "index_link_attachments_on_attachment_id", using: :btree
+  add_index "link_attachments", ["link_id"], name: "index_link_attachments_on_link_id", using: :btree
 
   create_table "links", force: :cascade do |t|
     t.integer  "product_id"
@@ -116,6 +127,8 @@ ActiveRecord::Schema.define(version: 20170912204133) do
   add_foreign_key "attachments", "products"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
+  add_foreign_key "link_attachments", "attachments"
+  add_foreign_key "link_attachments", "links"
   add_foreign_key "links", "products"
   add_foreign_key "products", "users"
 end

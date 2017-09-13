@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get "/descargar/:id", to: "links#download"
   get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment"
-  get "invalid"
+  #get "invalid"
   
   get "/ok", to: "welcome#payment_succed"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,9 +4,11 @@ class LinksController < ApplicationController
   def download
     @link.update_downloads
     @product = @link.product
+    @link.create_attachment_links
   end
   
   def download_attachment
+
   end
   
   private
