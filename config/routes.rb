@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get "/add/:product_id", as: :add_to_cart,to: "in_shopping_carts#create"
   get "/checkout",to: "payments#checkout"
   
+  get "/descargar/:id", to: "links#download"
+  get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment"
+  get "invalid"
+  
   get "/ok", to: "welcome#payment_succed"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
