@@ -58,6 +58,14 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    
+    @attachment = Attachment.where(product_id: params[:id])
+    if @attachment
+      #@attachment.destroy_all
+      @linkattachment = LinkAttachment.where(attachment_id: @attachment)
+      @linkattachment.destroy_all
+    end
+
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }

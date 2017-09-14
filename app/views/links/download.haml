@@ -1,4 +1,4 @@
-.col-md.10.center-block.no-float
+.col-md-6.center-block.no-float
   %article.card.large-padding.text-center
     %h1 Links de descarga
     %p 
@@ -11,4 +11,4 @@
     %div
       -@link_attachments.each do |link_attachment|
         %p.medium
-          =link_to link_attachment.attachment.archivo_file_name, download_attachment_path(id: @link.custom_id,attachment_id: link_attachment.id)
+          =link_to link_attachment.attachment.archivo_file_name, download_attachment_path(id: @link.custom_id,attachment_id: link_attachment.id), target:"_blank"

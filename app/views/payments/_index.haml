@@ -8,11 +8,11 @@
       %th Fecha
   %tbody
     -@orders.each do |order|
-      -order.products_by_user(current_user).each do |product|
+      -order.products.each do |p|
         %tr
           %td= order.id
-          %td= product.name
-          %td= product.pricing
+          %td= p.name
+          %td= p.pricing
           %td
             -if order.payed?
               ="Pagada"

@@ -16,7 +16,7 @@
 
 class MyPayment < ActiveRecord::Base
   include AASM
-  belongs_to :shopping_cart
+  belongs_to :shopping_cart, dependent: :destroy
   has_many :products, through: :shopping_cart
   
   aasm column: "status" do

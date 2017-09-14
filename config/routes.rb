@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :link_attachments, only: [:destroy]
   resources :attachments, only: [:create,:destroy,:new,:show]
   resources :products
   resources :in_shopping_carts, only: [:create,:destroy]

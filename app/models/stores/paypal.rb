@@ -24,22 +24,6 @@ class Stores::Paypal
     self.payment
   end
   
-  def process_card(card_data)
-    options = payment_options
-    options[:payer][:payment_method] = "credit_card"
-    options[:payer][:funding_instruments] = [{
-      credit_card: {
-        type: CreditCardValidator::Validator.card_type(card_data[:number]),
-        number: card_data[:number],
-        expire_month: card_data[:expire_month],
-        expire_year: card_data[:expire_year],
-        cvv2: card_data[:cvv2]
-      }
-    }]
-    self.payment = Payment.new(options)
-    self.payment    
-  end
-  
   def payment_options
     {
       intent: "sale",
@@ -51,7 +35,7 @@ class Stores::Paypal
           items: self.items
         },
         amount: {
-          total: (self.total/100),
+          total: (self.total),
           currency: "USD"
         },
         description: "Compra de tus productos en nuestra plataforma."

@@ -1,17 +1,14 @@
 %header
   %nav.green
     %ul.no-list.no-padding.text-center.white-text
-      %li.col-md-4.inline-block.tall-padding
+      %li.col-md-4.inline-block.tall-padding.pull-left
         -if user_signed_in?
           =link_to root_path, class:"right-space white-text" do
             %i.mdi-action-star-rate
             Mi tienda
-          =link_to ordenes_path, class:"right-space white-text" do
-            %i.mdi-action-trending-up
-            Órdenes           
-          =link_to "", class:"right-space white-text" do
-            %i.mdi-action-alarm
-            Descuentos           
+          =link_to destroy_user_session_path, method: :delete do
+            %i.mdi-maps-pin-drop
+            Cerrar sesión
       %li.col-md-4.inline-block.text-center
         =image_tag "tiendus.png", height:"25px"
       %li.col-md-4.inline-block.tall-padding

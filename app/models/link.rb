@@ -18,7 +18,7 @@ class Link < ActiveRecord::Base
   before_create :set_defaults
   after_create :send_email
   belongs_to :product
-  has_many :link_attachments
+  has_many :link_attachments, dependent: :destroy
   
   def is_invalid?
     (DateTime.now > self.expiration_date || self.downloads >= 5)
