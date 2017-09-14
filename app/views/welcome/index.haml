@@ -1,4 +1,9 @@
-%h1 Bienvenido
-
-%p
-  =link_to "Cerrar sesión", destroy_user_session_path, method: :delete
+.col-xs-12.col-md-10.center-block.no-float
+  .card.large-padding
+    .top-space
+      .col-md-3.col-xs-12.inline-block.no-padding.in-top
+        =render current_user.products
+      .col-md-9.col-xs-12.inline-block
+        =render "payments/index"
+      %p
+        =link_to "Cerrar sesión", destroy_user_session_path, method: :delete
