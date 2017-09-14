@@ -1,12 +1,12 @@
 %header
   %nav.green
-    %ul.no-list.no-padding.text-center
+    %ul.no-list.no-padding.text-center.white-text
       %li.col-md-4.inline-block.tall-padding
         -if user_signed_in?
           =link_to root_path, class:"right-space white-text" do
             %i.mdi-action-star-rate
             Mi tienda
-          =link_to "", class:"right-space white-text" do
+          =link_to ordenes_path, class:"right-space white-text" do
             %i.mdi-action-trending-up
             Órdenes           
           =link_to "", class:"right-space white-text" do

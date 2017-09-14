@@ -10,12 +10,20 @@ img {
   margin-right: 1em;
 }
 
+.close-parent {
+  cursor: pointer;
+}
+
 .payment-btn {
   border-radius: 3px;
   border: none;
   color: #fff;
   padding: 1em 2em;
   outline: none;
+}
+
+a, a:hover {
+  color: inherit !important;
 }
 
 .paypal-btn {

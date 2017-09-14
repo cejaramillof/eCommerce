@@ -1,0 +1,24 @@
+<div class="col-md-6 col-xs-10 col-sm-8 col-lg-5 center-block no-float big-top-space">
+  <div class="card big-padding">
+    <h2>¿Olvidaste tu contraseña?</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field top-space">
+        <%= f.label :email, "Correo:" %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"you@email.com" %>
+      </div>
+
+      <div class="row top-space">
+        <div class="actions text-center top-space col-md-8 col-md-push-4">
+          <%= f.submit "Envíame instrucciones", class:"btn btn-info" %>
+        </div>
+
+        <div class="top-space col-md-4 col-md-pull-8">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div> 
+    <% end %>
+  </div>
+</div>
