@@ -24,7 +24,7 @@ RSpec.describe MyEmail, type: :model do
   end
 
   it "should not create with invalid email" do
-    email = MyEmail.new(email:"carlos@xd.com")
+    email = MyEmail.new(email:"andresecommercetest@gmail.com")
     expect(email.valid?).to be_truthy
   end  
 end

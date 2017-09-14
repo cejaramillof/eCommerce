@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907234348) do
+ActiveRecord::Schema.define(version: 20170913152146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,30 @@ ActiveRecord::Schema.define(version: 20170907234348) do
   add_index "in_shopping_carts", ["product_id"], name: "index_in_shopping_carts_on_product_id", using: :btree
   add_index "in_shopping_carts", ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id", using: :btree
 
+  create_table "link_attachments", force: :cascade do |t|
+    t.integer  "link_id"
+    t.datetime "expiration_date"
+    t.integer  "attachment_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "link_attachments", ["attachment_id"], name: "index_link_attachments_on_attachment_id", using: :btree
+  add_index "link_attachments", ["link_id"], name: "index_link_attachments_on_link_id", using: :btree
+
+  create_table "links", force: :cascade do |t|
+    t.integer  "product_id"
+    t.datetime "expiration_date"
+    t.integer  "downloads"
+    t.integer  "downloads_limit"
+    t.string   "custom_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+  end
+
+  add_index "links", ["product_id"], name: "index_links_on_product_id", using: :btree
+
   create_table "my_emails", force: :cascade do |t|
     t.string   "email"
     t.string   "ip"
@@ -50,33 +74,36 @@ ActiveRecord::Schema.define(version: 20170907234348) do
     t.string   "email"
     t.string   "ip"
     t.string   "status"
-    t.decimal  "fee",        precision: 7, scale: 3
+    t.decimal  "fee",              precision: 6, scale: 2
     t.string   "paypal_id"
-    t.decimal  "total",      precision: 9, scale: 3
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "total",            precision: 8, scale: 2
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "shopping_cart_id"
   end
+
+  add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "pricing",             precision: 11, scale: 3
+    t.integer  "pricing"
     t.text     "description"
     t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.integer  "status",     default: 0
+    t.string   "status"
     t.string   "ip"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,5 +127,8 @@ ActiveRecord::Schema.define(version: 20170907234348) do
   add_foreign_key "attachments", "products"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
+  add_foreign_key "link_attachments", "attachments"
+  add_foreign_key "link_attachments", "links"
+  add_foreign_key "links", "products"
   add_foreign_key "products", "users"
 end

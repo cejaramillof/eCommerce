@@ -12,4 +12,6 @@
 class InShoppingCart < ActiveRecord::Base
   belongs_to :product
   belongs_to :shopping_cart
+  has_one :user, through: :product
+  #validates_uniqueness_of :user, :scope => [:shopping_cart_id]
 end

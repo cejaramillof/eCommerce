@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+gem 'pg', '0.20'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,6 +35,10 @@ gem 'bootstrap-material-design'
 gem 'paperclip'
 #PayPal SDK
 gem 'paypal-sdk-rest'
+#AASM para crear maquinas de estado
+gem 'aasm'
+#Credit Card Validator
+gem 'credit_card_validator'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -56,6 +60,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'letter_opener'
 end
 
 group :development do

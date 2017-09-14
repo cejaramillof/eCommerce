@@ -12,5 +12,8 @@
 require 'rails_helper'
 
 RSpec.describe InShoppingCart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
+  it{ should belong_to :product }
+  it{ should belong_to :shopping_cart }
+  it{ should have_one :user } #El dueño del producto
 end
