@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   get "/checkout",to: "payments#checkout"
   
   get "/descargar/:id", to: "links#download"
-  get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment"
-  #get "invalid"
+  get "/descargar/:id/archivo/:attachment_id", to: "links#download_attachment", as: :download_attachment
+  get "invalid", to: "welcome#unregistered"
   
   get "/ok", to: "welcome#payment_succed"
   # The priority is based upon order of creation: first created -> highest priority.
