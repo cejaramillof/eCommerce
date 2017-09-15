@@ -4,6 +4,10 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+body {
+  overflow : hidden; 
+  overflow-y : scroll;
+}
 /* Texto */
 .bold {
   font-weight: bold;

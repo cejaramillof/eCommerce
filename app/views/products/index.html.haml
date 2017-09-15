@@ -1,27 +1,17 @@
-%h1 Listing products
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Pricing
-      %th Description
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.name
-        %td= product.pricing
-        %td= product.description
-        %td= product.user
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Product', new_product_path
+.card.large-padding.big-padding
+  %h1 Lista de Productos
+  - @products.each do |product|
+    .col-md-4.text-center.top-space
+      .other-grey.card.big-padding
+        .col-xs-6
+          %p
+            Nombre:
+            = product.name
+        .col-xs-6            
+          %p
+            Precio:
+            = product.pricing
+        .col-xs-12
+          .card-action
+            = link_to 'Ver', product_path(id: product.id, client:true), class: "btn btn-info"
+            = render "in_shopping_carts/form",product: product
