@@ -1,3 +1,8 @@
+- @x= @current_user.orders
+%h4.bold Ventas por día:
+=column_chart @x.payed.group_by_day('my_payments.created_at').count
+%hr
+%h4.bold Registros:
 %table.table.table-striped.table-hover
   %thead
     %tr

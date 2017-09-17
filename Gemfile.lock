@@ -56,6 +56,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.1.0)
+    chartkick (2.2.4)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -87,6 +88,8 @@ GEM
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     haml (5.0.3)
       temple (>= 0.8.0)
       tilt
@@ -248,10 +251,12 @@ DEPENDENCIES
   bootstrap-material-design
   bootstrap-sass
   byebug
+  chartkick
   coffee-rails (~> 4.1.0)
   credit_card_validator
   devise
   factory_girl_rails (~> 4.0)
+  groupdate
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
