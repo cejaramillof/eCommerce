@@ -19,21 +19,3 @@
         .card-action.text-center
           = link_to 'Ver', product_path(id: product.id, client:true), class: "btn btn-info"
           = render "in_shopping_carts/form",product: product
-.container
-  .row
-  %h1 2
-  = pie_chart Product.group(:name).count
-  %h1 1      
-  = line_chart User.group_by_day(:created_at).count
-  %h1 3
-  = column_chart Product.group_by_hour_of_day(:created_at, format: "%l %P").count
-  %h1 3
-  = column_chart Product.group(:name).sum(:pricing)
-  %h1 4
-  = bar_chart Product.group(:name).sum(:pricing)
-  %h1 5
-  = area_chart Product.group(:name).sum(:pricing)
-  %h1 6
-  = scatter_chart Product.pluck(:pricing,:name)
-  %h1 7
-  = line_chart Product.group(:name).group_by_week(:created_at).count          

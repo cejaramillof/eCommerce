@@ -1,20 +1,23 @@
 %header
-  %nav.green
-    %ul.no-list.no-padding.text-center.white-text
-      %li.col-md-4.inline-block.tall-padding.pull-left
+  %nav.green  
+    %ul.no-list.no-padding.text-center.white-text   
+      %li.col-md-4.inline-block.tall-padding.pull-left         
         -if user_signed_in?
           =link_to root_path, class:"right-space white-text" do
             %i.mdi-action-star-rate
-            Mi tienda
-          =link_to products_path, class:"right-space white-text" do
-            %i.mdi-action-view-day
-            Productos           
-          =link_to destroy_user_session_path, method: :delete do
+            Mi tienda       
+          =link_to edit_user_registration_path, class:"right-space white-text" do
+            %i.mdi-image-control-point
+            Editar Perfil          
+          =link_to destroy_user_session_path, method: :delete, class:"right-space white-text" do
             %i.mdi-maps-pin-drop
             Cerrar sesión
-      %li.col-md-4.inline-block.text-center
+      %li.col-md-2.inline-block.text-center
         =image_tag "tiendus.png", height:"25px"
       %li.col-md-4.inline-block.tall-padding
+        =link_to products_path, class:"right-space white-text" do
+          %i.mdi-action-view-day
+          Productos       
         =link_to carrito_path, class:"white-text" do
           %i.mdi-action-shop-two
           Mi carrito
