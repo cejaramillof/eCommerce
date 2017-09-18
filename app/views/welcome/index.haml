@@ -1,4 +1,25 @@
-%h1 Bienvenido
-
-%p
-  =link_to "Cerrar sesión", destroy_user_session_path, method: :delete
+- @x= @current_user.orders
+.col-xs-12.col-md-10.center-block.no-float
+  .card.large-padding
+    .top-space
+      .col-md-3.col-xs-12.inline-block.no-padding.in-top
+        %h4.bold
+          Tienes:
+        .row
+          .col-xs-6.text-left         
+            =@x.group(:status).count["created"] + @x.group(:status).count["payed"]
+            Ventas
+          .col-xs-6.text-right
+            =current_user.products.count
+            Items
+          %h6.text-center
+            No Completadas:
+            =@x.group(:status).count["created"]
+            Completadas:
+            =@x.group(:status).count["payed"]
+        = pie_chart @x.group(:status).count
+        .text-center
+          =link_to "Crear producto",new_product_path, class:"btn btn-info"      
+        =render current_user.products
+      .col-md-9.col-xs-12.inline-block
+        =render "payments/index"

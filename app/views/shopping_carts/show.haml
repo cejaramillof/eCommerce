@@ -1,5 +1,4 @@
-=render "payments/card_data"
-.card.large-padding
+.card.large-padding.big-padding.big-top-space
   %table.table.table-striped.table-hover.medium#table_shopping_cart
     %thead
       %td Producto
@@ -11,9 +10,9 @@
         %tr{id: "#{product.id}"}
           %td= product.name
           %td= product.pricing
-          %td Eliminar
-  .top-space.large-padding.text-center
-    %p.medium
+          %td= link_to "Eliminar",i_sh,method: :delete
+  .top-space.large-padding.text-left
+    %p.medium(product_id)
       %strong
         Total: $
         =@shopping_cart.total

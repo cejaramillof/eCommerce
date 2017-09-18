@@ -1,0 +1,38 @@
+<div class="col-md-6 col-xs-10 col-sm-8 col-lg-5 center-block no-float big-top-space">
+  <div class="card big-padding">
+    <h2>Crear cuenta</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field top-space">
+        <%= f.label :email, "Correo:" %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"you@email.com"  %>
+      </div>
+
+      <div class="field top-space">
+        <%= f.label :password, "Contraseña:" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"*******"  %>
+      </div>
+
+      <div class="field top-space">
+        <%= f.label :password_confirmation, "Confirmar contraseña:" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"*******"  %>
+      </div>
+    
+      <div class="row">
+        <div class="actions text-center top-space col-md-5 col-md-push-7">
+          <%= f.submit "Registrar", class:"btn btn-info" %>
+        </div>
+
+        <div class="top-space col-md-7 col-md-pull-5">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div> 
+    
+    <% end %>
+  </div>
+</div>

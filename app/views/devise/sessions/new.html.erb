@@ -1,0 +1,26 @@
+<div class="col-md-6 col-xs-10 col-sm-8 col-lg-5 center-block no-float big-top-space">
+  <div class="card big-padding">
+    <h2>Iniciar sesión</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field top-space">
+        <%= f.label :email, "Correo" %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"You@email.com" %>
+      </div>
+
+      <div class="field top-space">
+        <%= f.label :password, "Contraseña" %><br />
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"*******" %>
+      </div>
+      <div class="row">
+        <div class="actions text-center top-space col-md-4 col-md-push-8">
+          <%= f.submit "Entrar", class:"btn btn-info" %>
+        </div>
+
+        <div class="top-space col-md-8 col-md-pull-4">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>        
+    <% end %>  
+  </div>    
+</div>

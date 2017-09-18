@@ -10,13 +10,10 @@
         %h3.blue-text.bold.normal= @product.user.email
         %h3.teal-text.bold.normal
           Precio:
-          %span.grey-text= "$#{@product.pricing}"
+          %span.grey-text= "$#{@product.pricing}" 
         %h3.teal-text.bold.normal
           Archivos:
-          %span.grey-text 20
-        %h3.teal-text.bold.normal
-          Tamaño:
-          %span.grey-text= "2gb"
+          %span.grey-text= "#{@product.attachments.count}"
         =render "in_shopping_carts/form",product: @product
     %section
       %h3.green-text.bold.normal Descripción

@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-  end
+    if params[:search]
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.all.order('created_at DESC')
+    end
+  end  
 
   # GET /products/1
   # GET /products/1.json
@@ -32,7 +37,7 @@ class ProductsController < ApplicationController
     @product = current_user.products.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Producto creado con exito.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -46,7 +51,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'Producto editado con exito.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -58,9 +63,17 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    
+    @attachment = Attachment.where(product_id: params[:id])
+    if @attachment
+      #@attachment.destroy_all
+      @linkattachment = LinkAttachment.where(attachment_id: @attachment)
+      @linkattachment.destroy_all
+    end
+
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Producto eliminado con exito.' }
       format.json { head :no_content }
     end
   end

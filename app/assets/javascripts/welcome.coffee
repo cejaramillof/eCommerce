@@ -3,3 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "ready page:load", ()-> 
   $.material.init()
+  $(".close-parent").on "click",()->
+    $(this).parent().slideUp()
+$(document).on "ready page:change", ()-> 
+  $.material.init()
+  $(".close-parent").on "click",()->
+    $(this).parent().slideUp()    

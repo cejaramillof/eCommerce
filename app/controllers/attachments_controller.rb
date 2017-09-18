@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_attachment, only: [:destroy,:show]
+  before_action :set_attachment, only: [:destroy,:show,:destroy_all]
   before_action :set_product, only: [:destroy]
   before_action :authenticate_owner!, except: [:show]
   
@@ -24,6 +24,11 @@ class AttachmentsController < ApplicationController
     @attachment.destroy
     redirect_to @product
   end
+  
+  def destroy_all
+    @attachment.destroy_all
+    redirect_to @product
+  end  
   
   private
     def set_attachment

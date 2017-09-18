@@ -1,27 +1,21 @@
-%h1 Listing products
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Pricing
-      %th Description
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.name
-        %td= product.pricing
-        %td= product.description
-        %td= product.user
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Product', new_product_path
+%h1 Lista de Productos
+= form_tag(products_path, :method => "get", id: "search-form") do
+  .form-group.big-top-space
+    = text_field_tag :search, params[:search], placeholder: "Buscar un producto", class: "form-control"
+    .text-right
+      = submit_tag "Buscar", class: "btn btn-success"
+%hr
+- @products.each do |product|
+  .col-sm-6.col-md-3.top-space
+    .card.top-space
+      .img-cont
+        =image_tag product.avatar.url, class:"card-img-top img-rounded", style: "max-height: 200px; margin: 2em auto 0 auto; display:block"
+      .big-padding
+        %h4.bold.card-title= product.name
+        %p
+          $
+          = product.pricing
+        %hr
+        .card-action.text-center
+          = link_to 'Ver', product_path(id: product.id, client:true), class: "btn btn-info"
+          = render "in_shopping_carts/form",product: product

@@ -1,0 +1,27 @@
+- @x= @current_user.orders
+%h4.bold Ventas completadas por día:
+- column_chart @x.payed.group_by_day('my_payments.created_at').count
+= line_chart @x.payed.group_by_day('my_payments.created_at').count
+%hr
+%h4.bold Registros:
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th #
+      %th Producto
+      %th Valor
+      %th Estado
+      %th Fecha
+  %tbody
+    -@orders.each do |order|
+      -order.products.each do |p|
+        %tr
+          %td= order.id
+          %td= p.name
+          %td= p.pricing
+          %td
+            -if order.payed?
+              ="Pagada"
+            -else
+              ="No completado"
+          %td= order.created_at

@@ -1,8 +1,17 @@
 = form_for @product,builder: BootstrapFormBuilder do |f|
   = f.errors
-  = f.text_field :name
-  %small Precio en Pesos Colombianos.
-  = f.text_field :pricing
-  = f.file_field :avatar
-  = f.text_area :description
-  = f.submit "Enviar"
+  .row.top-space
+    .col-md-6.col-xs-12
+      = f.text_field(:name, "xd")
+    .col-md-6.col-xs-12
+      = f.text_field :pricing
+      %small Precio en Dolares.
+  .row.top-space
+    .col-xs-12
+      = f.text_area :description
+  .row.top-space
+    .col-xs-8.center-block.no-float.text-center
+      = f.file_field :avatar
+      %small Portada producto.
+  .text-right.top-space
+    = f.submit "Agregar"

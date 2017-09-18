@@ -39,6 +39,9 @@ gem 'paypal-sdk-rest'
 gem 'aasm'
 #Credit Card Validator
 gem 'credit_card_validator'
+#Gema para gráficas
+gem "chartkick"
+gem "groupdate"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

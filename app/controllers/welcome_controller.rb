@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @orders = current_user.orders.order("created_at desc").index_by {|r| r[:shopping_cart_id]}.values
   end
   def unregistered
     render layout: "landing"

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :link_attachments, only: [:destroy]
   resources :attachments, only: [:create,:destroy,:new,:show]
   resources :products
   resources :in_shopping_carts, only: [:create,:destroy]
@@ -18,6 +19,9 @@ Rails.application.routes.draw do
   get "invalid", to: "welcome#unregistered"
   
   get "/ok", to: "welcome#payment_succed"
+  
+  get "/ordenes", to: "ordenes#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

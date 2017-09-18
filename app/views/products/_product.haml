@@ -1,0 +1,12 @@
+%article.top-space
+  .large-padding.text-left
+    .col-md-3.inline-block.no-padding
+    .col-md-9.inline-block.no-padding.text-right
+      - if product.sales.count > 0
+        ="#{product.sales.count}" + " Ventas = $"    
+        = product.sales_total
+        USD
+      -else
+        No ha tenido ventas.
+  %h3.large-padding.red.white-text.no-margin
+    = link_to product.name,product,class:"white-text"

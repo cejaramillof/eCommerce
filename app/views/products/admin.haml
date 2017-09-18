@@ -1,13 +1,15 @@
 .col-md-3.no-padding.inline-block.in-top
   %nav.medium
-    .green.white-text.col-md.12
+    .green.white-text.col-md.12.small-padding
       Admin general
 .col-md-9.inline-block.in-top
   .card.large-padding
     .col-md-9.inline-block
       %h1= @product.name
     .col-md-3.inline-block
-      %p.big.no-margin.red-text 10 usd
+      %p.big.no-margin.red-text
+        =@product.sales_total
+        USD
     %nav.top-space
       =link_to product_path(id: @product.id, client:true), class:"other-grey large-padding text-center col-md-4 inline-block" do
         Ver como cliente

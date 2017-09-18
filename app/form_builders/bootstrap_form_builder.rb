@@ -4,7 +4,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   [:text_field,:text_area,:url_field,:email_field,:number_field].each do |metodo|
     define_method metodo do |name,*args|
       options = args.extract_options!
-      aditional_classes = "form-control floating-label"
+      aditional_classes = "form-control floating-label top-space"
       if options.has_key?(:class)
         options[:class] += aditional_classes
       else

@@ -4,6 +4,10 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+body {
+  overflow : hidden; 
+  overflow-y : scroll;
+}
 /* Texto */
 .bold {
   font-weight: bold;
@@ -32,6 +36,10 @@ $colors : (
 /* Paddings */
 .large-padding {
   padding: 5px 10px;
+}
+
+.small-padding {
+  padding: 0.5em;
 }
 
 .big-padding {
